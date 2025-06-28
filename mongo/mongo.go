@@ -75,6 +75,16 @@ func Connect(ctx context.Context, config MongoConfig) (*mongo.Client, error) {
 	return MgoClientInstance, initErr
 }
 
+func NewMongoRepo(dbName string) *MongoRepo {
+	if MgoClientInstance == nil {
+		panic("MongoDB client not initialized. Call Connect() first.")
+	}
+	return &MongoRepo{
+		DBName: dbName,
+		Client: MgoClientInstance,
+	}
+}
+
 func Disconnect(ctx context.Context) error {
 	if MgoClientInstance != nil {
 		err := MgoClientInstance.Disconnect(ctx)

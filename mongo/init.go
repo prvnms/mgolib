@@ -8,8 +8,7 @@ import (
 
 func InitDefaultPID(dbName, collectionName string) {
 	repo := &MongoRepo{
-		DBName:         dbName,
-		CollectionName: collectionName,
+		DBName: dbName,
 	}
 
 	var seq PID
