@@ -7,7 +7,7 @@ import (
 )
 
 func InitDefaultPID(dbName, collectionName string) {
-	repo := MongoRepo{
+	repo := &MongoRepo{
 		DBName:         dbName,
 		CollectionName: collectionName,
 	}
